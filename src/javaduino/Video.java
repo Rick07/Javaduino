@@ -22,7 +22,7 @@ public class Video {
         {
             try 
             {  
-                    String command = "omxplayer /home/pi/Desktop/VIDEO.MOV";
+                    String command = "vlc /home/ricardo/Vídeos/prueba.MOV";
                     r = Runtime.getRuntime().exec(command);
                
             } catch (IOException e) 
@@ -43,10 +43,9 @@ public class Video {
         {
             try 
             {  
-                    String command = "killall omxplayer.bin";
+                    String command = "killall vlc";
                     d = Runtime.getRuntime().exec(command); 
-                    r.destroy();
-                    d.destroy();
+                  
                
             } catch (IOException e) 
             {

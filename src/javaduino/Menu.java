@@ -7,8 +7,6 @@
 package javaduino;
 
 import java.io.*;
-import static javaduino.Main.serialPort;
-import jssc.SerialPortException;
 
 /**
  *
@@ -16,10 +14,10 @@ import jssc.SerialPortException;
  */
 public class Menu {
     
-    public void control() throws SerialPortException
+    public void control()
     {
         //Abrir canal de comunicación desde el teclado
-       Conexion c = new Conexion();
+        Video video = new Video();
         
         String texto = "";
         int x=0;
@@ -42,12 +40,14 @@ public class Menu {
 		{
 			case 0:
 			{
-                            do{
-                                c.conecta();
-                            }while(serialPort.isOpened());
+                                video.ReproducirVideo();
                                 break;
 			}
-			
+			case 1:
+			{
+				video.DetenerVideo();
+				break;
+			}
                         case 2:
 			{
 				System.out.println("APLICACIÓN TERMINADA");
@@ -65,7 +65,7 @@ public class Menu {
 			System.out.println(e.getMessage());
 		}
             
-        } while (x != 2);
+        } while (x != 3);
     }
     
 }
