@@ -7,6 +7,7 @@
 package arduino;
 import com.javaduino.dao.RaspberryDAO;
 import com.javaduino.pojos.Raspberry;
+import com.javaduino.pojos.Fechas;
 import com.javaduino.pojos.Red;
 /**
  *
@@ -18,9 +19,12 @@ public class Main {
         
         RaspberryDAO raspi = new RaspberryDAO();
         Red red = new Red();
-        String mac = red.obtenerDireccionMac();
+        Fechas f = new Fechas();
         
-        Raspberry dato = new Raspberry(mac, 4);
+        String mac = red.obtenerDireccionMac();
+        String fecha = f.obtenerFecha();
+        
+        Raspberry dato = new Raspberry(mac, 4, fecha);
         
         raspi.guardaRaspi(dato);
         

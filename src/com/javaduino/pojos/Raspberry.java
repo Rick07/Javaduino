@@ -28,15 +28,19 @@ public class Raspberry implements Serializable
     @Column(name="tiempo")
     private int tiempo;
     
+    @Column(name="fecha")
+    private String fecha;
+    
 
     public Raspberry()
     {
     }
 
-    public Raspberry(String mac, int tiempo)
+    public Raspberry(String mac, int tiempo, String fecha)
     {
         this.mac = mac;
         this.tiempo = tiempo;
+        this.fecha = fecha;
     }
 
     public long getId() {
