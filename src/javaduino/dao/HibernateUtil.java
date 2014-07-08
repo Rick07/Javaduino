@@ -1,5 +1,5 @@
 
-package com.javaduino.dao;
+package javaduino.dao;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;

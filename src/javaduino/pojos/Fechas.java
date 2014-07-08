@@ -1,5 +1,5 @@
 
-package com.javaduino.pojos;
+package javaduino.pojos;
 
 import java.util.*;
 

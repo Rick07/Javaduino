@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 
-package com.javaduino.pojos;
+package javaduino.pojos;
 
-import com.javaduino.pojos.Video;
 import java.io.*;
 
 /**

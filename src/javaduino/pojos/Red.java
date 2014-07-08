@@ -1,4 +1,4 @@
-package com.javaduino.pojos;
+package javaduino.pojos;
 
 import java.net.NetworkInterface;
 import java.net.SocketException;

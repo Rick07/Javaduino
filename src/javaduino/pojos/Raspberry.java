@@ -1,4 +1,4 @@
-package com.javaduino.pojos;
+package javaduino.pojos;
 
 import java.io.Serializable;
 import javax.persistence.Column;

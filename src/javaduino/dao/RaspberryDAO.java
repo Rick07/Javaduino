@@ -1,7 +1,7 @@
 
-package com.javaduino.dao;
+package javaduino.dao;
 
-import com.javaduino.pojos.Raspberry;
+import javaduino.pojos.Raspberry;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

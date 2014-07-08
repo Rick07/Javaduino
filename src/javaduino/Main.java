@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 
-package arduino;
-import com.javaduino.dao.RaspberryDAO;
-import com.javaduino.pojos.Raspberry;
-import com.javaduino.pojos.Fechas;
-import com.javaduino.pojos.Red;
+package javaduino;
+import javaduino.dao.RaspberryDAO;
+import javaduino.pojos.Raspberry;
+import javaduino.pojos.Fechas;
+import javaduino.pojos.Red;
 /**
  *
  * @author ricardo
