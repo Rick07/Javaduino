@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 
-package javaduino;
+package com.javaduino.pojos;
+import com.javaduino.pojos.Video;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 import jssc.SerialPortTimeoutException;
@@ -12,7 +13,7 @@ import jssc.SerialPortTimeoutException;
  *
  * @author ricardo
  */
-public class Conexion {
+public class Arduino {
     
     Video video = new Video();
     
