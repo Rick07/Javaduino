@@ -26,7 +26,7 @@ public class RaspberryDAO
             manejaExcepcion(he); 
             throw he; 
         } finally 
-        { 
+        {
             sesion.close(); 
         }  
 

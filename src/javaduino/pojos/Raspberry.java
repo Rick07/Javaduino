@@ -8,12 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * @author Alex
- * @version 1.0
- * @author-mail programadorjavablog@gmail.com
- * @date 26-ago-2010
- */
+
 @Entity
 @Table(name="raspberry")
 public class Raspberry implements Serializable
@@ -26,7 +21,7 @@ public class Raspberry implements Serializable
     private String mac;
     
     @Column(name="tiempo")
-    private int tiempo;
+    private String tiempo;
     
     @Column(name="fecha")
     private String fecha;
@@ -36,7 +31,7 @@ public class Raspberry implements Serializable
     {
     }
 
-    public Raspberry(String mac, int tiempo, String fecha)
+    public Raspberry(String mac, String tiempo, String fecha)
     {
         this.mac = mac;
         this.tiempo = tiempo;
@@ -59,11 +54,11 @@ public class Raspberry implements Serializable
         this.mac = mac;
     }
 
-    public int getTiempo() {
+    public String getTiempo() {
         return tiempo;
     }
 
-    public void setTiempo(int tiempo) {
+    public void setTiempo(String tiempo) {
         this.tiempo = tiempo;
     }   
 }

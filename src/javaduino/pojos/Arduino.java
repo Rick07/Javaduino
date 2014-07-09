@@ -8,7 +8,7 @@ package javaduino.pojos;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 import jssc.SerialPortTimeoutException;
-import javaduino.pojos.Proceso;
+import javaduino.dao.RaspberryDAO;
 /**
  *
  * @author ricardo
@@ -17,8 +17,13 @@ public class Arduino {
     
     Video video = new Video();
     Proceso proceso = new Proceso();
+    RaspberryDAO raspi = new RaspberryDAO();
+    Red red = new Red();
+    Fechas f = new Fechas();
     
     public void conecta() throws SerialPortTimeoutException{
+        String mac = red.obtenerDireccionMac();
+        String fecha = f.obtenerFecha();
         SerialPort serialPort = new SerialPort("/dev/ttyACM0");
         int temp = 1;
         try {
@@ -33,8 +38,9 @@ public class Arduino {
                 {   
                     
                     temp = buffer[i];
+                    
+                    video.ReproducirVideo();
                     proceso.comenzarProceso();
-                    video.ReproducirVideo(); 
                     
                     System.out.println("dato para reproducir video: " + temp);
                     
@@ -44,7 +50,11 @@ public class Arduino {
                     temp = buffer[i];
                     video.DetenerVideo();
                     System.out.println("dato para detener video: " + temp);
-                    System.out.println("Duracion: " + proceso.finalizaProceso());
+                    String tiempo = proceso.finalizaProceso();
+                    System.out.println("Duracion: " + tiempo);
+ 
+                    Raspberry dato = new Raspberry(mac, tiempo, fecha);
+                    raspi.guardaRaspi(dato);
                 }
             }
             //}while(serialPort.isOpened());

@@ -5,28 +5,20 @@
  */
 
 package javaduino;
-import javaduino.dao.RaspberryDAO;
-import javaduino.pojos.Raspberry;
-import javaduino.pojos.Fechas;
-import javaduino.pojos.Red;
+
+import javaduino.pojos.Arduino;
+import jssc.SerialPortTimeoutException;
+
 /**
  *
  * @author ricardo
  */
 public class Main {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SerialPortTimeoutException {
         
-        RaspberryDAO raspi = new RaspberryDAO();
-        Red red = new Red();
-        Fechas f = new Fechas();
-        
-        String mac = red.obtenerDireccionMac();
-        String fecha = f.obtenerFecha();
-        
-        Raspberry dato = new Raspberry(mac, 4, fecha);
-        
-        raspi.guardaRaspi(dato);
+       Arduino arduino = new Arduino();
+        arduino.conecta();
         
     }
 }
