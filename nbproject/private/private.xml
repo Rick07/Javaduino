@@ -3,9 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ricardo/NetBeansProjects/Javaduino/src/javaduino/Main.java</file>
-            <file>file:/home/ricardo/NetBeansProjects/Javaduino/src/javaduino/pojos/Raspberry.java</file>
-            <file>file:/home/ricardo/NetBeansProjects/Javaduino/src/javaduino/pojos/Proceso.java</file>
+            <file>file:/home/ricardo/NetBeansProjects/Javaduino/src/javaduino/pojos/Video.java</file>
+            <file>file:/home/ricardo/NetBeansProjects/Javaduino/src/hibernate.cfg.xml</file>
+            <file>file:/home/ricardo/NetBeansProjects/Javaduino/src/javaduino/pojos/Arduino.java</file>
         </group>
     </open-files>
 </project-private>
