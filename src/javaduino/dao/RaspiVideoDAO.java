@@ -1,21 +1,28 @@
 package javaduino.dao;
 
-import javaduino.pojos.Raspberry;
+import javaduino.pojos.RaspiVideo;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class RaspberryDAO {
+/**
+ * @author Alex
+ * @version 1.0
+ * @author-mail programadorjavablog@gmail.com
+ * @date 26-ago-2010
+ */
+public class RaspiVideoDAO {
 
     private Session sesion;
     private Transaction tx;
 
-    public void guardaRaspi(Raspberry raspberry) throws HibernateException {
+    public long guardaRaspiVideo(RaspiVideo raspivideo) throws HibernateException {
+        long id = 0;
 
         try {
             iniciaOperacion();
-            sesion.save(raspberry);
+            id = (long) sesion.save(raspivideo);
             tx.commit();
         } catch (HibernateException he) {
             manejaExcepcion(he);
@@ -24,25 +31,13 @@ public class RaspberryDAO {
             sesion.close();
         }
 
+        return id;
     }
 
-    public void actualizaRaspi(Raspberry raspberry) throws HibernateException {
+    public void actualizaRaspiVideo(RaspiVideo raspivideo) throws HibernateException {
         try {
             iniciaOperacion();
-            sesion.update(raspberry);
-            tx.commit();
-        } catch (HibernateException he) {
-            manejaExcepcion(he);
-            throw he;
-        } finally {
-            sesion.close();
-        }
-    }
-
-    public void eliminaRaspi(Raspberry raspberry) throws HibernateException {
-        try {
-            iniciaOperacion();
-            sesion.delete(raspberry);
+            sesion.update(raspivideo);
             tx.commit();
         } catch (HibernateException he) {
             manejaExcepcion(he);
@@ -52,29 +47,42 @@ public class RaspberryDAO {
         }
     }
 
-    public Raspberry obtenRaspi(long idRaspi) throws HibernateException {
-        Raspberry raspberry = null;
+    public void eliminaRaspiVideo(RaspiVideo raspivideo) throws HibernateException {
         try {
             iniciaOperacion();
-            raspberry = (Raspberry) sesion.get(Raspberry.class, idRaspi);
+            sesion.delete(raspivideo);
+            tx.commit();
+        } catch (HibernateException he) {
+            manejaExcepcion(he);
+            throw he;
         } finally {
             sesion.close();
         }
-
-        return raspberry;
     }
 
-    public List<Raspberry> obtenListaRaspis() throws HibernateException {
-        List<Raspberry> listaRaspis = null;
-
+    public RaspiVideo obtenRaspiVideo(long idRaspiVideo) throws HibernateException {
+        RaspiVideo raspivideo = null;
         try {
             iniciaOperacion();
-            listaRaspis = sesion.createQuery("from raspberry").list();
+            raspivideo = (RaspiVideo) sesion.get(RaspiVideo.class, idRaspiVideo);
         } finally {
             sesion.close();
         }
 
-        return listaRaspis;
+        return raspivideo;
+    }
+
+    public List<RaspiVideo> obtenListaRaspiVideos() throws HibernateException {
+        List<RaspiVideo> listaRaspiVideos = null;
+
+        try {
+            iniciaOperacion();
+            listaRaspiVideos = sesion.createQuery("from RaspiVideo").list();
+        } finally {
+            sesion.close();
+        }
+
+        return listaRaspiVideos;
     }
 
     private void iniciaOperacion() throws HibernateException {

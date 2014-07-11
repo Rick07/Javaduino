@@ -1,49 +1,37 @@
 package javaduino.pojos;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="raspberry")
-public class Raspberry implements Serializable
-{
+@Table(name = "raspberry")
+public class Raspberry implements Serializable {
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private long id;
-    
-    @Column(name="mac")
+    @Column(name = "mac", length = 17)
     private String mac;
-    
-    @Column(name="tiempo")
-    private String tiempo;
-    
-    @Column(name="fecha")
-    private String fecha;
-    
 
-    public Raspberry()
-    {
+    @Column(name = "ubicacion", length = 50)
+    private String ubicacion;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @JoinColumn(name = "raspimac")
+    private List<RaspiVideo> raspiVideo;
+
+    public Raspberry() {
     }
 
-    public Raspberry(String mac, String tiempo, String fecha)
-    {
+    public Raspberry(String mac, String ubicacion) {
         this.mac = mac;
-        this.tiempo = tiempo;
-        this.fecha = fecha;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+        this.ubicacion = ubicacion;
     }
 
     public String getMac() {
@@ -54,11 +42,19 @@ public class Raspberry implements Serializable
         this.mac = mac;
     }
 
-    public String getTiempo() {
-        return tiempo;
+    public String getUbicacion() {
+        return ubicacion;
     }
 
-    public void setTiempo(String tiempo) {
-        this.tiempo = tiempo;
-    }   
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public List<RaspiVideo> getRaspiVideo() {
+        return raspiVideo;
+    }
+
+    public void setRaspiVideo(List<RaspiVideo> raspiVideo) {
+        this.raspiVideo = raspiVideo;
+    }
 }
