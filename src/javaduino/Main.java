@@ -7,6 +7,7 @@
 package javaduino;
 
 import javaduino.pojos.Arduino;
+import javaduino.pojos.Menu;
 import jssc.SerialPortTimeoutException;
 
 /**
@@ -17,8 +18,10 @@ public class Main {
     
     public static void main(String[] args) throws SerialPortTimeoutException {
         
-       Arduino arduino = new Arduino();
-        arduino.conecta();
+       /*Arduino arduino = new Arduino();
+        arduino.conecta();*/
+        Menu menu = new Menu();
+        menu.control();
         
     }
 }

@@ -52,11 +52,11 @@ public class RaspberryDAO {
         }
     }
 
-    public Raspberry obtenRaspi(long idRaspi) throws HibernateException {
+    public Raspberry obtenRaspi(String mac) throws HibernateException {
         Raspberry raspberry = null;
         try {
             iniciaOperacion();
-            raspberry = (Raspberry) sesion.get(Raspberry.class, idRaspi);
+            raspberry = (Raspberry) sesion.get(Raspberry.class, mac);
         } finally {
             sesion.close();
         }

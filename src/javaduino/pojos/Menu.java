@@ -7,12 +7,20 @@
 package javaduino.pojos;
 
 import java.io.*;
+import jssc.SerialPortTimeoutException;
+
 
 /**
  *
  * @author ricardo
  */
 public class Menu {
+
+    public Menu() throws SerialPortTimeoutException {
+        Arduino a = new Arduino();
+        a.conecta();
+    }
+    
     
     public void control()
     {
@@ -40,7 +48,7 @@ public class Menu {
 		{
 			case 0:
 			{
-                                video.ReproducirVideo();
+                               
                                 break;
 			}
 			case 1:
